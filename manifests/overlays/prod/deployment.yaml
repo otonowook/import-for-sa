@@ -12,7 +12,7 @@ spec:
           args: ["--spring.config.location=file:/config/application.yml"]
           volumeMounts:
           - mountPath: /mnt/cloud-sample
-            name: cloud-sample-volume
+            name: import-for-sa-volume
             readOnly: false
             subPath: cloud-sample
           - mountPath: /config

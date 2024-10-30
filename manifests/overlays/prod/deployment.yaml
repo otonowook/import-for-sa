@@ -6,7 +6,7 @@ spec:
   replicas: 1
   template:
     spec:
-        tolerations:
+      tolerations:
         - key: "taint-test"
           operator: "Equal"
           value: "taint-value"

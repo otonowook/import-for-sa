@@ -8,6 +8,9 @@ spec:
     matchLabels:
       app: import-for-sa
   template:
+    metadata:
+      labels:
+        app: import-for-sa
     spec:
       containers:
         - name: import-for-sa 

@@ -6,6 +6,11 @@ spec:
   replicas: 1
   template:
     spec:
+        tolerations:
+        - key: "taint-test"
+          operator: "Equal"
+          value: "taint-value"
+          effect: "NoSchedule"
       containers:
         - name: import-for-sa 
           command: ["java","-jar","/app.jar"]

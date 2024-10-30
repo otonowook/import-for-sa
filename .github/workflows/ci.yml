@@ -3,7 +3,7 @@ name: github action CI
 on: workflow_dispatch
 
 env:
-  IMAGE_NAME: cloud-sample
+  IMAGE_NAME: import-for-sa
 
 jobs:
   build:

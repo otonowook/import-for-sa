@@ -1,23 +1,32 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: import-for-sa
+  name: import-for-sa 
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: import-for-sa
   template:
-    metadata:
-      labels:
-        app: import-for-sa
     spec:
       containers:
         - name: import-for-sa 
-          image: ce82257991acr.azurecr.io/import-for-sa
-          ports:
-          - containerPort: 8080
+          command: ["java","-jar","/app.jar"]
+          args: ["--spring.config.location=file:/config/application.yml"]
+          volumeMounts:
+          - mountPath: /mnt/import-for-sa
+            name: import-for-sa-volume
+            readOnly: false
+            subPath: import-for-sa
+          - mountPath: /config
+            name: application-properties
+            readOnly: true
+                          
       volumes:
-      - name: cloud-sample-volume
+      - name: import-for-sa-volume
         persistentVolumeClaim:
           claimName: import-for-sa-pvc
+      - name: application-properties
+        configMap:
+          name: import-for-sa-configmap
+          items:
+            - key: application.yml
+              path: application.yml
+          defaultMode: 420

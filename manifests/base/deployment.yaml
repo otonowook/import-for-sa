@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: import-for-sa 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: import-for-sa
+  template:
+    metadata:
+      labels:
+        app: import-for-sa
+    spec:
+      containers:
+        - name: import-for-sa 
+          image: ce82257991acr.azurecr.io/import-for-sa
+          ports:
+          - containerPort: 8080

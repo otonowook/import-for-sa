@@ -15,4 +15,4 @@ images:
 - name: ce82257991acr.azurecr.io/cloud-sample
   newTag: "202410301202"
 - name: ce82257991acr.azurecr.io/import-for-sa
-  newTag: lastest
+  newTag: "202410301205"

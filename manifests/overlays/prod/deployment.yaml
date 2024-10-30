@@ -4,6 +4,7 @@ metadata:
   name: import-for-sa 
 spec:
   replicas: 1
+  selector: import-for-sa 
   template:
     spec:
       containers:

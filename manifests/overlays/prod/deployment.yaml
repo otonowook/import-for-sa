@@ -17,3 +17,7 @@ spec:
           image: ce82257991acr.azurecr.io/import-for-sa
           ports:
           - containerPort: 8080
+      volumes:
+      - name: cloud-sample-volume
+        persistentVolumeClaim:
+          claimName: import-for-sa-pvc

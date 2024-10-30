@@ -6,7 +6,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "import-for-sa"
+      app: import-for-sa
   template:
     spec:
       containers:
